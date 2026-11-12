@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cierre</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(
+                    rgba(5, 20, 12, 0.80),
+                    rgba(5, 20, 12, 0.90)
+                ),
+                url("backround.avif");
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        header {
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header img {
+            width: 110px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(
+                0 0 12px rgba(115, 224, 70, 0.4)
+            );
+        }
+
+        header h1 {
+            font-family: Impact, Haettenschweiler, sans-serif;
+            font-size: clamp(45px, 7vw, 75px);
+            color: #73E046;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(115, 224, 70, 0.35);
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 20px;
+            color: #46E08A;
+            font-weight: bold;
+        }
+
+
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            padding: 18px;
+            background: rgba(10, 25, 16, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-top: 1px solid rgba(115, 224, 70, 0.2);
+            border-bottom: 2px solid #46E08A;
+        }
+
+        nav a {
+            color: #E5F5E8;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 22px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #73E046;
+            color: #102817;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(115, 224, 70, 0.3);
+        }
+
+
+        main {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 25px;
+        }
+
+        section {
+            background: rgba(15, 35, 23, 0.88);
+            border: 1px solid rgba(70, 224, 138, 0.35);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            border-color: #73E046;
+            box-shadow: 0 10px 30px rgba(115, 224, 70, 0.12);
+        }
+
+        section h2 {
+            color: #73E046;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        section p {
+            color: #E5F5E8;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .introduccion {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+
+
+        .lista-compromisos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .compromiso {
+            background: linear-gradient(
+                145deg,
+                #173C25,
+                #10291B
+            );
+
+            border: 1px solid #46E08A;
+            border-radius: 15px;
+            padding: 22px;
+            transition: all 0.3s ease;
+        }
+
+        .compromiso:hover {
+            transform: translateY(-6px);
+            border-color: #B4E046;
+            box-shadow: 0 8px 20px rgba(115, 224, 70, 0.2);
+        }
+
+        .compromiso h3 {
+            color: #B4E046;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .compromiso p {
+            font-size: 15px;
+        }
+
+
+
+        .mensaje-final {
+            text-align: center;
+            background: linear-gradient(
+                145deg,
+                rgba(70, 224, 138, 0.15),
+                rgba(115, 224, 70, 0.08)
+            );
+        }
+
+        .mensaje-final p {
+            max-width: 750px;
+            margin: 0 auto 18px;
+        }
+
+        .frase-final {
+            color: #B4E046;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+
+
+        .muro {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .nota {
+            min-height: 170px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            padding: 22px;
+            border-radius: 14px;
+
+            background: linear-gradient(
+                145deg,
+                #73E046,
+                #46E08A
+            );
+
+            color: #102817;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+            transition: all 0.3s ease;
+        }
+
+        .nota:hover {
+            transform: rotate(-2deg) scale(1.04);
+            background: #B4E046;
+        }
+
+        .nota p {
+            color: #102817;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .nota span {
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+
+
+        .seccion-qr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(70, 224, 138, 0.3);
+        }
+
+        .seccion-qr h3 {
+            color: #B4E046;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .seccion-qr img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+
+
+        .fuentes {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .fuentes a {
+            color: #46E0BE;
+            text-decoration: none;
+            font-size: 16px;
+            overflow-wrap: anywhere;
+            transition: 0.3s ease;
+        }
+
+        .fuentes a:hover {
+            color: #B4E046;
+            text-decoration: underline;
+        }
+
+
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 25, 16, 0.95);
+            border-top: 2px solid #46E08A;
+            color: #46E0BE;
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+                gap: 5px;
+                padding: 12px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            section h2 {
+                font-size: 26px;
+            }
+
+            .lista-compromisos {
+                grid-template-columns: 1fr;
+            }
+
+            .muro {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+
+    <header>
+
+        <img src="cecyte logo.png" alt="Logo del CECyTE">
+
+        <h1>Cierre</h1>
+
+        <p>"Mi compromiso con la paz"</p>
+
+    </header>
+
+
+
+
+    <nav>
+        <a href="index.html">Portada</a>
+        <a href="inicio.html">Inicio</a>
+        <a href="desarrollo.html">Desarrollo</a>
+    </nav>
+
+
+    <main>
+
+
+
+        <section>
+
+            <h2>Mis compromisos</h2>
+
+            <p class="introduccion">
+                Me comprometo a contribuir a una convivencia sana
+                dentro de mi escuela y comunidad mediante las
+                siguientes acciones:
+            </p>
+
+            <div class="lista-compromisos">
+
+                <div class="compromiso">
+                    <h3>Respeto a los demás</h3>
+                    <p>
+                        Respetar las opiniones, diferencias y
+                        derechos de mis compañeros, evitando
+                        burlas y discriminación.
+                    </p>
+                </div>
+
+                <div class="compromiso">
+                    <h3>Practicar la empatía</h3>
+                    <p>
+                        Tratar de comprender los sentimientos
+                        y situaciones de otras personas antes
+                        de juzgarlas.
+                    </p>
+                </div>
+
+                <div class="compromiso">
+                    <h3>Resolver conflictos mediante el diálogo</h3>
+                    <p>
+                        Evitar las agresiones y buscar soluciones
+                        pacíficas mediante la comunicación.
+                    </p>
+                </div>
+
+                <div class="compromiso">
+                    <h3>Fomentar la cooperación</h3>
+                    <p>
+                        Ayudar a mis compañeros y participar
+                        de manera positiva en las actividades
+                        escolares.
+                    </p>
+                </div>
+
+                <div class="compromiso">
+                    <h3>Evitar la violencia</h3>
+                    <p>
+                        No participar en actos de violencia,
+                        acoso o discriminación y buscar apoyo
+                        cuando sea necesario.
+                    </p>
+                </div>
+
+                <div class="compromiso">
+                    <h3>Dar el ejemplo</h3>
+                    <p>
+                        Practicar diariamente los valores
+                        que promueven la paz y la convivencia.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <section class="mensaje-final">
+
+            <h2>Un mensaje para todos</h2>
+
+            <p>
+                La paz no consiste solamente en evitar conflictos,
+                sino también en aprender a resolverlos mediante
+                el respeto, la empatía y el diálogo.
+            </p>
+
+            <p>
+                No esperemos a que alguien más comience.
+                La convivencia sana también depende de nosotros.
+            </p>
+
+            <div class="frase-final">
+                ¡La paz comienza con nuestras acciones!
+            </div>
+
+        </section>
+
+
+
+
+        <section>
+
+            <h2>Muro de compromisos</h2>
+
+            <p class="introduccion">
+                Estos son algunos compromisos que podemos
+                asumir para construir una comunidad escolar
+                basada en el respeto y la paz.
+            </p>
+
+            <div class="muro">
+
+                <div class="nota">
+                    <p>
+                        "Escucharé a los demás antes de juzgarlos."
+                    </p>
+                    <span>Compromiso por la empatía</span>
+                </div>
+
+                <div class="nota">
+                    <p>
+                        "Resolveré mis diferencias mediante el diálogo."
+                    </p>
+                    <span>Compromiso por el diálogo</span>
+                </div>
+
+                <div class="nota">
+                    <p>
+                        "Respetaré las diferencias de mis compañeros."
+                    </p>
+                    <span>Compromiso por el respeto</span>
+                </div>
+
+                <div class="nota">
+                    <p>
+                        "Evitaré las burlas y cualquier forma de discriminación."
+                    </p>
+                    <span>Compromiso contra la violencia</span>
+                </div>
+
+                <div class="nota">
+                    <p>
+                        "Ayudaré a quien necesite apoyo."
+                    </p>
+                    <span>Compromiso por la solidaridad</span>
+                </div>
+
+                <div class="nota">
+                    <p>
+                        "Contribuiré a mantener un ambiente de paz."
+                    </p>
+                    <span>Compromiso con mi comunidad</span>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="seccion-qr">
+
+                <h3>¿Quieres saber más?</h3>
+
+                <p>
+                    Escanea este código QR para consultar
+                    más información sobre la cultura de paz
+                    y la convivencia.
+                </p>
+
+                <img src="Black and White Simple QR Code Sticker (1).png"
+                     alt="Código QR sobre cultura de paz">
+
+                <p style="margin-top: 12px; font-size: 13px;">
+                    Consulta más información y sigue aprendiendo.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+
+        <section>
+
+            <h2>Fuentes consultadas</h2>
+
+            <p>
+                Para elaborar este proyecto se consultaron
+                los siguientes recursos:
+            </p>
+
+            <div class="fuentes">
+
+                <a href="https://concepto.de/convivencia/"
+                   target="_blank" rel="noopener noreferrer">
+                    1. Concepto.de - Convivencia
+                </a>
+
+                <a href="https://www.mpdl.org/noticias/es-cultura-paz#sthash.JiYkQXqU.dpbs"
+                   target="_blank" rel="noopener noreferrer">
+                    2. Movimiento por la Paz - Cultura de paz
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+
+    <footer>
+
+        <p>PAEC - Cultura de la Paz - CECyTE 24</p>
+        <p>Construyendo rutas para una convivencia sana.</p>
+
+    </footer>
+
+</body>
+</html>

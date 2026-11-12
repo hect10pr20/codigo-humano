@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Apertura</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(5, 20, 12, 0.80), rgba(5, 20, 12, 0.88)),
+                url("backround.avif");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        header {
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header img {
+            width: 110px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 12px rgba(115, 224, 70, 0.4));
+        }
+
+        header h1 {
+            font-family: Impact, Haettenschweiler, sans-serif;
+            font-size: clamp(45px, 7vw, 75px);
+            color: #73E046;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(115, 224, 70, 0.35);
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 20px;
+            color: #46E08A;
+            font-weight: bold;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            padding: 18px;
+            background: rgba(10, 25, 16, 0.92);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(115, 224, 70, 0.2);
+            border-bottom: 2px solid #46E08A;
+        }
+
+        nav a {
+            color: #E5F5E8;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 22px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #73E046;
+            color: #102817;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(115, 224, 70, 0.3);
+        }
+        main {
+            max-width: 1100px;
+            min-height: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        .contenido {
+            background: rgba(15, 35, 23, 0.85);
+            border: 1px solid rgba(70, 224, 138, 0.3);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .contenido h2 {
+            color: #B4E046;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .contenido p {
+            color: #E5F5E8;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 25, 16, 0.95);
+            border-top: 2px solid #46E08A;
+            color: #46E0BE;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                gap: 5px;
+                padding: 12px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            .contenido {
+                padding: 22px;
+            }
+        }
+        hr{
+            border: none;
+            height: 3px;
+            background-color:#394b32;
+        }
+
+
+
+.algoritmo {
+    background: rgba(15, 35, 23, 0.88);
+    border: 1px solid rgba(70, 224, 138, 0.35);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.algoritmo h2 {
+    color: #73E046;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.algoritmo .introduccion {
+    color: #E5F5E8;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+
+
+.pasos {
+    display: flex;
+    align-items: stretch;
+    gap: 22px;
+    overflow-x: auto;
+    padding: 15px 5px 25px;
+    list-style: none;
+}
+
+
+.pasos li {
+    position: relative;
+    flex: 0 0 145px;
+    min-height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 18px 12px;
+    border-radius: 14px;
+    border: 2px solid #46E08A;
+
+    background: linear-gradient(
+        145deg,
+        #173C25,
+        #10291B
+    );
+
+    transition: all 0.3s ease;
+}
+
+
+
+.pasos .numero {
+    color: #B4E046;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+
+
+.pasos strong {
+    color: #73E046;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.pasos p {
+    color: #E5F5E8;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+
+.pasos li:not(:last-child)::after {
+    content: "➜";
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #B4E046;
+    font-size: 22px;
+    z-index: 2;
+}
+
+
+
+.pasos li:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(
+        145deg,
+        #285B30,
+        #173C25
+    );
+    border-color: #B4E046;
+    box-shadow: 0 8px 20px rgba(115, 224, 70, 0.25);
+}
+
+
+.resultado {
+    margin-top: 20px;
+    padding: 18px;
+    text-align: center;
+    border-radius: 12px;
+    background: rgba(70, 224, 138, 0.12);
+    border: 1px solid #46E08A;
+    color: #73E046;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+@media (max-width: 600px) {
+    .algoritmo {
+        padding: 20px;
+    }
+
+    .algoritmo h2 {
+        font-size: 28px;
+    }
+
+    .pasos li {
+        flex-basis: 135px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="cecyte logo.png" alt="Logo del CECyTE">
+
+        <h1>Apertura</h1>
+
+        <p>"Identifico mi realidad"</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Portada</a>
+        <a href="desarrollo.html">Desarrollo</a>
+        <a href="cierre.html">Cierre</a>
+    </nav>
+
+    <main>
+
+        <section class="contenido">
+            <h2>¿Que es la cultura de paz?</h2>
+
+            <p>
+                Es el conjunto de valores, actitudes y 
+                acciones que promueven el respeto, la 
+                empatia, el dialogo, la igualdad, la 
+                cooperacion y la solucion de conflictos de 
+                manera pacifica para tener una convivencia 
+                sana
+            </p>
+        </section>
+
+        <section class="contenido">
+            <h2>¿Que es la convivencia?</h2>
+
+            <p>
+                coexistencia pacífica y armoniosa entre personas
+                o grupos que comparten un mismo espacio físico o
+                social durante un tiempo determinado.
+            </p>
+        </section>
+
+        <section class="contenido">
+            <h2>dimensiones</h2>
+
+            <p>
+                1.- discriminacion escolar:  Es el trato desigual, 
+                injusto o excluyente hacia un estudiante.
+            </p>
+<hr>
+            <p>
+                2.- falta de respeto:  Incluye actitudes groseras, 
+                interrupciones constantes, desobediencia a las normas 
+                básicas de cortesía o el uso de lenguaje ofensivo hacia 
+                compañeros y docentes.
+            </p>
+<hr>
+             <p>
+                3.- rumores sobre personas: Consiste en difundir información 
+                falsa, exagerada o privada sobre alguien.
+            </p>
+<hr>
+             <p>
+                4.- peleas por insignificancias: Son enfrentamientos verbales 
+                o físicos que surgen por desacuerdos menores, malentendidos o 
+                provocaciones triviales.
+            </p>
+<hr>
+             <p>
+                5.- violencia social: Es una forma de agresión indirecta que 
+                busca dañar las relaciones sociales.
+            </p>
+<hr>
+             <p>
+                6.- bulling escolar: Es el maltrato físico, verbal o psicológico 
+                deliberado.
+
+            </p>
+        </section>
+
+
+<section class="algoritmo">
+
+    <h2>Algoritmo de paz</h2>
+
+    <p class="introduccion">
+        Sigue esta ruta para resolver conflictos,
+        fortalecer el respeto y mejorar la convivencia
+        dentro de nuestra comunidad escolar.
+    </p>
+
+    <ol class="pasos">
+
+        <li>
+            <span class="numero">01</span>
+            <strong>Identifico el conflicto</strong>
+            <p>Reconozco qué está sucediendo y cuál es el problema.</p>
+        </li>
+
+        <li>
+            <span class="numero">02</span>
+            <strong>Mantengo la calma</strong>
+            <p>Evito reaccionar impulsivamente y pienso antes de actuar.</p>
+        </li>
+
+        <li>
+            <span class="numero">03</span>
+            <strong>Reconozco mis emociones</strong>
+            <p>Identifico cómo me siento y qué necesito.</p>
+        </li>
+
+        <li>
+            <span class="numero">04</span>
+            <strong>Escucho a los demás</strong>
+            <p>Presto atención sin interrumpir ni juzgar.</p>
+        </li>
+
+        <li>
+            <span class="numero">05</span>
+            <strong>Dialogo con respeto</strong>
+            <p>Expreso mis ideas sin insultar ni agredir.</p>
+        </li>
+
+        <li>
+            <span class="numero">06</span>
+            <strong>Buscamos soluciones</strong>
+            <p>Proponemos alternativas que beneficien a todos.</p>
+        </li>
+
+        <li>
+            <span class="numero">07</span>
+            <strong>Llegamos a un acuerdo</strong>
+            <p>Elegimos una solución justa y aceptada por las partes.</p>
+        </li>
+
+        <li>
+            <span class="numero">08</span>
+            <strong>Actúo con responsabilidad</strong>
+            <p>Cumplo lo acordado y respeto a los demás.</p>
+        </li>
+
+    </ol>
+
+    <div class="resultado">
+        Resultado: una convivencia sana y una cultura de paz.
+    </div>
+
+</section>
+
+
+    </main>
+
+    <footer>
+        <p>PAEC - Cultura de la Paz - CECyTE 24</p>
+    </footer>
+
+</body>
+</html>

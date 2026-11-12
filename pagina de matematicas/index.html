@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portada</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image:
+                linear-gradient(rgba(5, 20, 12, 0.72), rgba(5, 20, 12, 0.82)),
+                url("backround.avif");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header img {
+            width: 130px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 12px rgba(115, 224, 70, 0.4));
+        }
+
+        .subtitulo {
+            color: #46E08A;
+            font-size: 17px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-family: Impact, Haettenschweiler,
+            'Arial Narrow Bold', sans-serif;
+            font-size: clamp(55px, 10vw, 110px);
+            letter-spacing: 5px;
+            color: #73E046;
+            text-shadow:
+                0 0 10px rgba(115, 224, 70, 0.5),
+                0 0 30px rgba(70, 224, 138, 0.3);
+            margin-bottom: 20px;
+            transition: 0.4s ease;
+        }
+
+        h2:hover {
+            transform: scale(1.04);
+            color: #B4E046;
+        }
+
+        .descripcion {
+            max-width: 650px;
+            font-size: 21px;
+            line-height: 1.6;
+            color: #E5F5E8;
+            margin-bottom: 35px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 16px 35px;
+            background: linear-gradient(
+                135deg,
+                #73E046,
+                #46E08A
+            );
+            color: #102817;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 12px;
+            border: 2px solid #73E046;
+            box-shadow: 0 0 18px rgba(115, 224, 70, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .boton:hover {
+            background: #B4E046;
+            transform: translateY(-6px) scale(1.06);
+            box-shadow: 0 8px 25px rgba(115, 224, 70, 0.4);
+        }
+
+        .boton:active {
+            transform: scale(0.96);
+        }
+
+        @media (max-width: 600px) {
+            .subtitulo {
+                font-size: 13px;
+                letter-spacing: 2px;
+            }
+
+            .descripcion {
+                font-size: 17px;
+            }
+
+            header img {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <img src="cecyte logo.png" alt="Logo del CECyTE">
+
+        <p class="subtitulo">
+            PAEC - Cultura de la Paz - 3er semestre
+        </p>
+
+        <h2>CODIGO HUMANO</h2>
+
+        <p class="descripcion">
+            Programando rutas de paz para la convivencia sana
+            dentro del CECyTE 24.
+        </p>
+
+        <a href="inicio.html" class="boton">
+            Comenzar mi ruta
+        </a>
+
+    </header>
+
+</body>
+</html>
